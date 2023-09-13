@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
+import cors from "cors";
 import customerRouter from "./routes/customerRoutes.js";
 import productRouter from "./routes/productRoute.js";
 import tagRouter from "./routes/tagRouter.js";
@@ -17,6 +18,7 @@ const app = express();
 // Use express middleware for manage form data
 app.use(express.json());
 app.use(express.urlencoded({extended : false }));
+app.use(cors);
 
 // Init router
 app.use('/api/v1/customer', customerRouter);
